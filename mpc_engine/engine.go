@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Dethanker/MPCService/computation"
-	"github.com/Dethanker/MPCService/data_management"
+	"github.com/chwzx/MPCService/computation"
+	"github.com/chwzx/MPCService/data_management"
 	log "github.com/sirupsen/logrus"
 )
 
