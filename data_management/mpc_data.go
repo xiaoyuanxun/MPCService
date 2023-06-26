@@ -13,8 +13,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Dethanker/MPCService/computation"
-	"github.com/Dethanker/MPCService/key_management"
+	"github.com/chwzx/MPCService/computation"
+	"github.com/chwzx/MPCService/key_management"
 	log "github.com/sirupsen/logrus"
 )
 

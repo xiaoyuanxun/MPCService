@@ -8,7 +8,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/Dethanker/MPCService/computation"
+	"github.com/chwzx/MPCService/computation"
 )
 
 func TestInputPrepare(t *testing.T) {
