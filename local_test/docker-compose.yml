@@ -68,7 +68,7 @@ services:
     depends_on:
       - manager_test
       
-  mpc_node_test4:
+  mpc_node_test5:
     container_name: mpc_node_test5
     build:
       context: ..
