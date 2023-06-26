@@ -11,15 +11,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/chwzx/MPCService/data_provider"
-	"github.com/chwzx/MPCService/mpc_node"
+	"github.com/Dethanker/MPCService/data_provider"
+	"github.com/Dethanker/MPCService/mpc_node"
 
-	"github.com/chwzx/MPCService/data_management"
-	"github.com/chwzx/MPCService/manager"
+	"github.com/Dethanker/MPCService/data_management"
+	"github.com/Dethanker/MPCService/manager"
 	log "github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/chwzx/MPCService/key_management"
+	"github.com/Dethanker/MPCService/key_management"
 )
 
 func TestRequestComputationWithManager(t *testing.T) {

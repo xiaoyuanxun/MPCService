@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/chwzx/MPCService/cmd"
+	"github.com/Dethanker/MPCService/cmd"
 	"github.com/urfave/cli"
 )
 

@@ -12,7 +12,7 @@
 在本地4100端口即可发起多方计算:http://localhost:4100/  
 初始账号和密码：123
 ## 拓展
-当需要添加节点/数据集或作其他修改时，需要克隆到本地的代码中的所有“github.com/chwzx/DataSharingSystem”字符替换成你的github仓库，然后在该仓库中上传修改后的所有代码，同时需要在local_test目录下运行  
+当需要添加节点/数据集或作其他修改时，需要克隆到本地的代码中的所有“github.com/Dethanker/DataSharingSystem”字符替换成你的github仓库，然后在该仓库中上传修改后的所有代码，同时需要在local_test目录下运行  
 ````docker-compose build````  
 以重新构建镜像  
 ### 添加节点

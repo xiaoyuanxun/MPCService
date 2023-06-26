@@ -1,4 +1,4 @@
-module github.com/chwzx/MPCService
+module github.com/Dethanker/MPCService
 
 go 1.17
 

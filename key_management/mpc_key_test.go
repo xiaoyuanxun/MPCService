@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/chwzx/MPCService/key_management"
+	"github.com/Dethanker/MPCService/key_management"
 	"github.com/stretchr/testify/assert"
 )
 

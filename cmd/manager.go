@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"github.com/chwzx/MPCService/config"
-	"github.com/chwzx/MPCService/manager"
+	"github.com/Dethanker/MPCService/config"
+	"github.com/Dethanker/MPCService/manager"
 	"github.com/urfave/cli"
 )
 

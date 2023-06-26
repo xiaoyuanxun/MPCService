@@ -13,8 +13,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/chwzx/MPCService/data_management"
-	"github.com/chwzx/MPCService/logging"
+	"github.com/Dethanker/MPCService/data_management"
+	"github.com/Dethanker/MPCService/logging"
 	"github.com/gorilla/websocket"
 	log "github.com/sirupsen/logrus"
 )
