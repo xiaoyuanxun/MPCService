@@ -76,7 +76,7 @@ func managerConn(name, managerAddr string, datasets []Dataset, locations map[str
 
 	conn, _, err := dialer.Dial(u.String(), nil)
 	if err != nil {
-		log.Error("Data provider: error dialing the manager")
+		log.Error("Data provider: error dialing the manager", err)
 		return
 	}
 	defer conn.Close()
