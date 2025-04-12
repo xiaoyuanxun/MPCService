@@ -24,6 +24,8 @@ var nodeNames = []string{
 	"Manager",
 	"Paris_node",
 	"Rome_node",
+	"node_1",
+	"node_2",
 }
 
 func main() {
