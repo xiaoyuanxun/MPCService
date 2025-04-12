@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"github.com/chwzx/MPCService/config"
-	"github.com/chwzx/MPCService/mpc_node"
 	"github.com/urfave/cli"
+	"github.com/xiaoyuanxun/MPCService/config"
+	"github.com/xiaoyuanxun/MPCService/mpc_node"
 )
 
 var MpcNodeCmd = cli.Command{

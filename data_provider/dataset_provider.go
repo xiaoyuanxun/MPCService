@@ -13,10 +13,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/chwzx/MPCService/data_management"
-	"github.com/chwzx/MPCService/logging"
 	"github.com/gorilla/websocket"
 	log "github.com/sirupsen/logrus"
+	"github.com/xiaoyuanxun/MPCService/data_management"
+	"github.com/xiaoyuanxun/MPCService/logging"
 )
 
 // todo: error management

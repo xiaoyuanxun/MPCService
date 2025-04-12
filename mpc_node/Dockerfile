@@ -82,8 +82,8 @@ RUN tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
 ENV PATH="/usr/local/go/bin:${PATH}"
 
 ## Install MPCService
-ADD . / /root/go/src/github.com/chwzx/MPCService/
-WORKDIR /root/go/src/github.com/chwzx/MPCService
+ADD . / /root/go/src/github.com/xiaoyuanxun/MPCService/
+WORKDIR /root/go/src/github.com/xiaoyuanxun/MPCService
 RUN go env -w GO111MODULE=on
 RUN go env -w GOPROXY=https://goproxy.cn,direct
 RUN go install
@@ -112,6 +112,6 @@ RUN cp -r computation/scale_files/Input /SCALE-MAMBA/Input
 WORKDIR /SCALE-MAMBA
 RUN make progs
 
-WORKDIR /root/go/src/github.com/chwzx/MPCService
+WORKDIR /root/go/src/github.com/xiaoyuanxun/MPCService
 # Start the MPC server
 ENTRYPOINT ["MPCService"]

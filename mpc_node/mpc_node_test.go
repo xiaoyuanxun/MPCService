@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/chwzx/MPCService/manager"
-	"github.com/chwzx/MPCService/mpc_node"
+	"github.com/xiaoyuanxun/MPCService/manager"
+	"github.com/xiaoyuanxun/MPCService/mpc_node"
 )
 
 func TestRunNode(t *testing.T) {

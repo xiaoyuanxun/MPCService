@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/chwzx/MPCService/key_management"
 	"github.com/stretchr/testify/assert"
+	"github.com/xiaoyuanxun/MPCService/key_management"
 )
 
 func TestKeyGenLoad(t *testing.T) {

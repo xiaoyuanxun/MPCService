@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/chwzx/MPCService/computation"
-	"github.com/chwzx/MPCService/data_management"
 	log "github.com/sirupsen/logrus"
+	"github.com/xiaoyuanxun/MPCService/computation"
+	"github.com/xiaoyuanxun/MPCService/data_management"
 )
 
 // Todo: shutdown request, low priority

@@ -3,9 +3,9 @@ package cmd
 import (
 	"strings"
 
-	"github.com/chwzx/MPCService/config"
-	"github.com/chwzx/MPCService/data_provider"
 	"github.com/urfave/cli"
+	"github.com/xiaoyuanxun/MPCService/config"
+	"github.com/xiaoyuanxun/MPCService/data_provider"
 )
 
 var DataProviderCMD = cli.Command{

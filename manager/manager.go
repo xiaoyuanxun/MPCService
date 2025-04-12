@@ -12,12 +12,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/chwzx/MPCService/logging"
+	"github.com/xiaoyuanxun/MPCService/logging"
 
-	"github.com/chwzx/MPCService/data_provider"
-	"github.com/chwzx/MPCService/mpc_engine"
 	"github.com/gorilla/websocket"
 	log "github.com/sirupsen/logrus"
+	"github.com/xiaoyuanxun/MPCService/data_provider"
+	"github.com/xiaoyuanxun/MPCService/mpc_engine"
 
 	"github.com/gorilla/mux"
 )

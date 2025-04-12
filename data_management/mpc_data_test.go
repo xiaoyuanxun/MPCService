@@ -5,8 +5,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/chwzx/MPCService/key_management"
 	"github.com/stretchr/testify/assert"
+	"github.com/xiaoyuanxun/MPCService/key_management"
 )
 
 func TestSharesShamir(t *testing.T) {

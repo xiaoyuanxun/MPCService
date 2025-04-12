@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/chwzx/MPCService/manager"
+	"github.com/xiaoyuanxun/MPCService/manager"
 
-	"github.com/chwzx/MPCService/data_provider"
+	"github.com/xiaoyuanxun/MPCService/data_provider"
 )
 
 func TestRunDatasetProvider(t *testing.T) {

@@ -8,8 +8,8 @@ import (
 	"strings"
 	"syscall/js"
 
-	"github.com/chwzx/MPCService/data_management"
-	"github.com/chwzx/MPCService/key_management"
+	"github.com/xiaoyuanxun/MPCService/data_management"
+	"github.com/xiaoyuanxun/MPCService/key_management"
 )
 
 func registerCallbacks() {

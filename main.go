@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/chwzx/MPCService/cmd"
 	"github.com/urfave/cli"
+	"github.com/xiaoyuanxun/MPCService/cmd"
 )
 
 // main runs the CLI app.
