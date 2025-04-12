@@ -24,3 +24,9 @@
 ```
 ./certstrap init --common-name "RootCA"
 ```
+
+```
+./certstrap request-cert --common-name Rome_node
+
+./certstrap sign Rome_node --CA RootCA
+```
