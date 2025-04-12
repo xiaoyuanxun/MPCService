@@ -72,7 +72,12 @@ func main() {
 			KeyUsage:    x509.KeyUsageDigitalSignature | x509.KeyUsageKeyEncipherment,
 			ExtKeyUsage: []x509.ExtKeyUsage{x509.ExtKeyUsageServerAuth, x509.ExtKeyUsageClientAuth},
 			IPAddresses: []net.IP{net.ParseIP("127.0.0.1")},
-			DNSNames:    []string{name, "localhost"},
+			DNSNames: func(n string) []string {
+				if n == "Manager" {
+					return []string{"manager_test", n, "localhost"}
+				}
+				return []string{n, "localhost"}
+			}(name),
 		}
 
 		// 签发证书
