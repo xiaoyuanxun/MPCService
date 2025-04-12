@@ -14,7 +14,7 @@ import (
 	"time"
 )
 
-var nextNodeNum = 2
+var nextNodeNum = 1
 
 func main() {
 	// 读取根证书文件
@@ -61,8 +61,10 @@ func main() {
 		NotAfter:  time.Now().AddDate(1, 0, 0),
 
 		// 使用 localhost 和 127.0.0.1 作为主机名和 IP 地址
-		DNSNames:    []string{"localhost"},
-		IPAddresses: []net.IP{net.ParseIP("127.0.0.1")},
+		// DNSNames:    []string{"localhost"},
+		// IPAddresses: []net.IP{net.ParseIP("127.0.0.1")},
+		DNSNames:    []string{""},
+		IPAddresses: []net.IP{net.ParseIP("43.165.191.142")},
 	}
 
 	nextNodeNum++

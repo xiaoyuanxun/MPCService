@@ -20,3 +20,7 @@
 ### 添加数据集
 当需要添加数据集时，在`data_provider/datasets`目录下添加csv格式的文件，第一行为每一列的数据名称
 
+# Key management
+```
+./certstrap init --common-name "RootCA"
+```
