@@ -14,83 +14,89 @@ import (
 	"time"
 )
 
-var (
-	// 替换为你docker-compose中用到的服务名
-	nodeNames = []string{
-		"Berlin_node",
-		"Bristol_node",
-		"Data_provider1",
-		"Leuven_node",
-		"Ljubljana_node",
-		"Madrid_node",
-		"Manager",
-		"Paris_node",
-		"Rome_node",
-	}
-)
+var nodeNames = []string{
+	"Berlin_node",
+	"Bristol_node",
+	"Data_provider1",
+	"Leuven_node",
+	"Ljubljana_node",
+	"Madrid_node",
+	"Manager",
+	"Paris_node",
+	"Rome_node",
+}
 
 func main() {
+	// 读取 RootCA
 	rootCAFile := "RootCA.crt"
-	rootCAKeyFile := "RootCA.key"
+	rootKeyFile := "RootCA.key"
 
 	rootCAData, err := os.ReadFile(rootCAFile)
 	if err != nil {
-		log.Fatalf("Failed to read root CA file: %v", err)
+		log.Fatalf("❌ Failed to read RootCA.crt: %v", err)
 	}
-	rootCAKeyData, err := os.ReadFile(rootCAKeyFile)
+	rootKeyData, err := os.ReadFile(rootKeyFile)
 	if err != nil {
-		log.Fatalf("Failed to read root CA key file: %v", err)
+		log.Fatalf("❌ Failed to read RootCA.key: %v", err)
 	}
 
-	block, _ := pem.Decode(rootCAData)
-	block2, _ := pem.Decode(rootCAKeyData)
+	caBlock, _ := pem.Decode(rootCAData)
+	keyBlock, _ := pem.Decode(rootKeyData)
 
-	rootCA, err := x509.ParseCertificate(block.Bytes)
+	rootCA, err := x509.ParseCertificate(caBlock.Bytes)
 	if err != nil {
-		log.Fatalf("Failed to parse root CA certificate: %v", err)
+		log.Fatalf("❌ Failed to parse RootCA certificate: %v", err)
 	}
-	rootCAKey, err := x509.ParsePKCS1PrivateKey(block2.Bytes)
+	rootKey, err := x509.ParsePKCS1PrivateKey(keyBlock.Bytes)
 	if err != nil {
-		log.Fatalf("Failed to parse root CA private key: %v", err)
+		log.Fatalf("❌ Failed to parse RootCA private key: %v", err)
 	}
 
 	for i, name := range nodeNames {
+		fmt.Printf("🔐 Generating cert for %s...\n", name)
+
+		// 生成节点私钥
 		privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
 		if err != nil {
-			log.Fatalf("Failed to generate private key for %s: %v", name, err)
+			log.Fatalf("❌ Failed to generate key for %s: %v", name, err)
 		}
 
+		// 创建证书模板
 		template := x509.Certificate{
-			SerialNumber: big.NewInt(int64(i + 1)),
+			SerialNumber: big.NewInt(int64(1000 + i)),
 			Subject: pkix.Name{
 				CommonName: name,
 			},
-			NotBefore:             time.Now(),
-			NotAfter:              time.Now().AddDate(1, 0, 0),
-			DNSNames:              []string{name, "localhost"},
-			IPAddresses:           []net.IP{net.ParseIP("127.0.0.1")},
-			BasicConstraintsValid: true,
+			NotBefore:   time.Now(),
+			NotAfter:    time.Now().AddDate(1, 0, 0),
+			KeyUsage:    x509.KeyUsageDigitalSignature | x509.KeyUsageKeyEncipherment,
+			ExtKeyUsage: []x509.ExtKeyUsage{x509.ExtKeyUsageServerAuth, x509.ExtKeyUsageClientAuth},
+			IPAddresses: []net.IP{net.ParseIP("127.0.0.1")},
+			DNSNames:    []string{name, "localhost"},
 		}
 
-		cert, err := x509.CreateCertificate(rand.Reader, &template, rootCA, privateKey.Public(), rootCAKey)
+		// 签发证书
+		certDER, err := x509.CreateCertificate(rand.Reader, &template, rootCA, &privateKey.PublicKey, rootKey)
 		if err != nil {
-			log.Fatalf("Failed to create certificate for %s: %v", name, err)
+			log.Fatalf("❌ Failed to create certificate for %s: %v", name, err)
 		}
 
-		certOut, err := os.Create(fmt.Sprintf("%s.crt", name))
+		// 保存证书
+		certFile, err := os.Create(fmt.Sprintf("%s.crt", name))
 		if err != nil {
-			log.Fatalf("Failed to write certificate for %s: %v", name, err)
+			log.Fatalf("❌ Failed to write cert for %s: %v", name, err)
 		}
-		defer certOut.Close()
-		pem.Encode(certOut, &pem.Block{Type: "CERTIFICATE", Bytes: cert})
+		pem.Encode(certFile, &pem.Block{Type: "CERTIFICATE", Bytes: certDER})
+		certFile.Close()
 
-		keyOut, err := os.OpenFile(fmt.Sprintf("%s.key", name), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
+		// 保存私钥
+		keyFile, err := os.Create(fmt.Sprintf("%s.key", name))
 		if err != nil {
-			log.Fatalf("Failed to write key for %s: %v", name, err)
+			log.Fatalf("❌ Failed to write key for %s: %v", name, err)
 		}
-		defer keyOut.Close()
-		pem.Encode(keyOut, &pem.Block{Type: "RSA PRIVATE KEY", Bytes: x509.MarshalPKCS1PrivateKey(privateKey)})
+		pem.Encode(keyFile, &pem.Block{Type: "RSA PRIVATE KEY", Bytes: x509.MarshalPKCS1PrivateKey(privateKey)})
+		keyFile.Close()
 
-		fmt.Printf("✅ Created certificate for %s\n", name)
+		fmt.Printf("✅ Certificate for %s created.\n", name)
 	}
 }
