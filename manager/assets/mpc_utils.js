@@ -709,7 +709,7 @@ async function mpc_computation2() {
    console.log(datasets[selectedDatasets[0]][0]);
    console.log(func);
    if (func == "avg") {
-    fetch(`https://raw.githubusercontent.com/chwzx/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
+    fetch(`https://raw.githubusercontent.com/xiaoyuanxun/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
     .then(response => response.text())
     .then(text => {
       const rows = text.split('\n'); 
@@ -742,7 +742,7 @@ async function mpc_computation2() {
    }
 
    if(func=="min"){
-    fetch(`https://raw.githubusercontent.com/chwzx/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
+    fetch(`https://raw.githubusercontent.com/xiaoyuanxun/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
     .then(response => response.text())
     .then(text => {
       const rows = text.split('\n'); 
@@ -773,7 +773,7 @@ async function mpc_computation2() {
    }
  
    if (func == "max") {
-    fetch(`https://raw.githubusercontent.com/chwzx/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
+    fetch(`https://raw.githubusercontent.com/xiaoyuanxun/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
         .then(response => response.text())
         .then(text => {
             const rows = text.split('\n');
@@ -804,7 +804,7 @@ async function mpc_computation2() {
 }
 
 if (func == "absolute") {
-  fetch(`https://raw.githubusercontent.com/chwzx/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
+  fetch(`https://raw.githubusercontent.com/xiaoyuanxun/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
   .then(response => response.text())
   .then(text => {
     const rows = text.split('\n');
@@ -843,7 +843,7 @@ if (func == "absolute") {
 }
 
  if(func=="quartile"){
-  fetch(`https://raw.githubusercontent.com/chwzx/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
+  fetch(`https://raw.githubusercontent.com/xiaoyuanxun/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
   .then(response => response.text())
   .then(text => {
     const rows = text.split('\n'); 
@@ -882,7 +882,7 @@ if (func == "absolute") {
  }
 
  if(func=="medium"){
-  fetch(`https://raw.githubusercontent.com/chwzx/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
+  fetch(`https://raw.githubusercontent.com/xiaoyuanxun/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
   .then(response => response.text())
   .then(text => {
     const rows = text.split('\n'); 
@@ -921,7 +921,7 @@ if (func == "absolute") {
 
 
  if(func=="upperquartile"){
-  fetch(`https://raw.githubusercontent.com/chwzx/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
+  fetch(`https://raw.githubusercontent.com/xiaoyuanxun/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
   .then(response => response.text())
   .then(text => {
     const rows = text.split('\n'); 
@@ -960,7 +960,7 @@ if (func == "absolute") {
  }
 
  if(func=="variance"){
-  fetch(`https://raw.githubusercontent.com/chwzx/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
+  fetch(`https://raw.githubusercontent.com/xiaoyuanxun/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
   .then(response => response.text())
   .then(text => {
     const rows = text.split('\n'); 
@@ -1006,7 +1006,7 @@ if (func == "absolute") {
  }
 
  if(func=="standard"){
-  fetch(`https://raw.githubusercontent.com/chwzx/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
+  fetch(`https://raw.githubusercontent.com/xiaoyuanxun/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
   .then(response => response.text())
   .then(text => {
     const rows = text.split('\n'); 
@@ -1052,7 +1052,7 @@ if (func == "absolute") {
  }
 
  if(func=="sknewness"){
-  fetch(`https://raw.githubusercontent.com/chwzx/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
+  fetch(`https://raw.githubusercontent.com/xiaoyuanxun/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
   .then(response => response.text())
   .then(text => {
     const rows = text.split('\n'); 
@@ -1101,7 +1101,7 @@ if (func == "absolute") {
   });
  }
  if(func=="kurtosis"){
-  fetch(`https://raw.githubusercontent.com/chwzx/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
+  fetch(`https://raw.githubusercontent.com/xiaoyuanxun/MPCService/master/data_provider/datasets/${datasets[selectedDatasets[0]][0]}`)
   .then(response => response.text())
   .then(text => {
     const rows = text.split('\n'); 
